@@ -73,3 +73,16 @@ doubtsolving.addEventListener('click', function() {
   timer.classList.remove("active"); // Bring doubts to the front
  
 });
+const username = "Kartik"
+document.getElementById('username').textContent = " "+username;
+
+const now = new Date();
+const date = now.getDate();
+const year = now.getYear();
+const monthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now);
+document.getElementById('date').textContent = date+" "+monthName;
+
+const studyHourstoday = 0;
+document.getElementById('today-hours').textContent = studyHourstoday+" ";
+const avgstudyHours = 0;
+document.getElementById('avg-hours').textContent = avgstudyHours+" ";
