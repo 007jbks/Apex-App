@@ -83,6 +83,48 @@ const monthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now
 document.getElementById('date').textContent = date+" "+monthName;
 
 const studyHourstoday = 0;
-document.getElementById('today-hours').textContent = studyHourstoday+" ";
+document.getElementById('today-hours').textContent = studyHourstoday+" Hrs";
 const avgstudyHours = 0;
-document.getElementById('avg-hours').textContent = avgstudyHours+" ";
+document.getElementById('avg-hours').textContent = avgstudyHours+" Hrs";
+
+const progressHours = 0;
+document.getElementById('progress-hours').textContent = progressHours+" %"
+
+
+const url = "https://api.api-ninjas.com/v1/quotes";
+const apikey = "2MXZgu7YS0Ep5/T6xMu4vw==sKMM58lZKkEfB9i6";
+
+
+fetch(url, {
+  method: 'GET',
+  headers: {
+    'X-Api-Key': apikey
+  }
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // Parse the JSON from the response
+  })
+  .then(data => {
+    if (Array.isArray(data) && data.length > 0) {
+      // Access the first quote and author from the response
+      const quote = data[0].quote;
+      const author = data[0].author;
+
+      // Display the quote and author on the webpage
+      document.getElementById('quote').textContent = `"${quote}"`;
+      document.getElementById('author').textContent = `- ${author}`;
+    } else {
+      // Handle case when the response array is empty
+      document.getElementById('quote').textContent = 'No quotes found!';
+      document.getElementById('author').textContent = '';
+    }
+  })
+  .catch(error => {
+    // Log any errors and display a fallback message
+    console.error('Error fetching the quote:', error);
+    document.getElementById('quote').textContent = 'Failed to fetch a quote. Please try again later.';
+    document.getElementById('author').textContent = '';
+  });
