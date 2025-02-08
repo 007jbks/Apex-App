@@ -6,11 +6,8 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<!-- This is the upper section-->
-		<header>
-			
-		</header>
-
+		
+<header></header>
 		<!-- This is the main section of the app-->
 	<div class="Main">
 		
@@ -20,10 +17,7 @@
 <div class="hello">
 Hello<span id="username"> Name</span>👋
 </div>
-<div class="check-in">
-	<div id="quote">Loading Quote...</div>
-	<div id="author">..</div>
-</div>
+
 <div style="height:10%;width: 100%;"></div>
 <div id="date" style="font-family:monospace;font-size:20px;color: #F1C40F;">
 		date and day
@@ -53,20 +47,31 @@ Hello<span id="username"> Name</span>👋
 
 
 
+		<!--Timer here-->
+
+		<div class="main-timer">
+    <div style="height:100%;width:100%;display:flex;justify-content:center;align-items:center;flex-direction:column">
+			<div class="circle-timer">
+				<div id="time">00:00:00</div>
+			</div>
+			<div style="height:5%;width:100%"></div>
+			<div class="width:100%;height:20%;display:flex;align-items:center;justify-content:space-between">
+			<button id="reset">⏹</button>
+			<button id="begin">▶</button>
+			<button id="stop">⏸</button>
+		</div>
+</div>
+</div>
+
 		<!-- -->
-
-
-
-
-		<div class="main-timer">Timer</div>
 		<div class="main-tasklist">Tasklist</div>
 		<div class="main-flashcard">Flashcard</div>
 		<div class="main-doubt">Doubt</div>
 	</div>
 
 			<!-- This is the navigation section-->
-		<footer>
-			<hr>
+	
+		<footer>		<hr>
 			<div class="tab">
 			<div class="home">
 				<div style="display:flex;flex-direction: column;">
