@@ -1,7 +1,7 @@
 /* Default styling for mobile and small screens */
 body {
   background-color: black;
-  background: linear-gradient(135deg,black,grey);
+  font-family:Arial;
   color: whitesmoke;
   display: flex;
   flex-direction: column;
@@ -19,18 +19,28 @@ header {
 
 .Main {
   position: relative; /* Allows child elements to be stacked within it */
-  height: 85%;  /* Ensure there is a clear height for the Main container */
+  height: 100%;  /* Ensure there is a clear height for the Main container */
   width: 100%;
   background-color: black;
-  overflow: auto;
+  translate:0px -40px;
+  
 }
 
 .main-home, .main-timer, .main-tasklist, .main-flashcard, .main-doubt {
-  position: absolute; /* Allow stacking on top of each other */
+  position: absolute;
+  overflow-y:auto;
   width: 100%;  /* Ensure they cover the full width */
-  height: 80%;  /* Ensure they cover the full height of the parent */
+  height: 90%;  /* Ensure they cover the full height of the parent */
   display: flex;
   background-color: black;
+}
+
+.main-home.active,.main-timer.active,.main-doubt.active,.main-tasklist.active,.main-flashcard.active{
+  display: flex;
+}
+
+.main-home.active,.main-timer.active,.main-doubt.active,.main-tasklist.active,.main-flashcard.active{
+ display:none;
 }
 
 .main-home {
@@ -82,7 +92,7 @@ footer {
   cursor:pointer;
 }
 .home.active, .timer.active, .flashcard.active, .tasklist.active, .doubtsolving.active{
-  background-color: rgba(13, 13, 13, 1.0);
+  background-color: rgba(80, 80, 80, 1.0);
 }
 
 
@@ -180,7 +190,6 @@ footer .tab div img {
 .hello{
   font-size:35px;
   margin-left: 25px;
-  font-family:'Roboto Black';
   font-weight: lighter;
 }
 
@@ -210,7 +219,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-border-radius:20px;
+border-radius:10px;
 background: linear-gradient(145deg, #000000, #1a1a1a,#1a1a1a,#1a1a1a, #000000);
 
 }
@@ -223,7 +232,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-border-radius:20px;
+border-radius:10px;
 background: linear-gradient(145deg, #000000, #1a1a1a,#1a1a1a,#1a1a1a, #000000);
 
 }
@@ -232,27 +241,81 @@ background: linear-gradient(145deg, #000000, #1a1a1a,#1a1a1a,#1a1a1a, #000000);
   display: flex;
   justify-content:center;
   align-items: center;
-
+  height:40%;
 
 }
 .progress-card{
-  border-radius: 20px;
+  border-radius: 10px;
   width:85%;
   height:100%;
   background-color:rgba(35, 35, 35, 1.0);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(145deg, #000000, #1a1a1a,#1a1a1a,#1a1a1a, #000000);
+background:  linear-gradient(145deg, #000000, #1a1a1a,#1a1a1a,#1a1a1a, #000000);
 
 }
-.check-in{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  flex-direction: column;
 
+
+.circle-timer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5in;
+    height: 2.5in;
+    background: black;
+
+    border-radius: 50%;
+    position: relative;
+    border: solid 5px salmon;
+   
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 📱 Increase size for tablets (min 600px width) */
+@media (min-width: 600px) {
+    .circle-timer {
+        width: 3in;
+        height: 3in;
+    }
+}
+
+/* 💻 Increase size even more for desktops (min 1024px width) */
+@media (min-width: 1024px) {
+    .circle-timer {
+        width: 3.5in;
+        height: 3.5in;
+    }
+}
+
+#begin,#stop,#reset
+{
+  background-color: black;
+  color: salmon;
+  border: solid 2px;
+  width: 0.5in;
+  border-radius: 15%;
+}
+
+@media (min-width: 1024px) {
+  #begin,#stop,#reset
+{
+width: 1in;
+border-radius: 10%;
+}
+}
+
+@media (min-width: 600px) {
+#begin,#stop,#reset{
+  width: 1in;
+  border-radius: 10%;
+}
+}
+
+#timer{
+  font-size: larger;
 }
